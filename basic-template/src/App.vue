@@ -1,4 +1,5 @@
 <script setup>
+
 const dataSet = [
     {
         name: 'salary',
@@ -6,31 +7,50 @@ const dataSet = [
     },
     {
         name: 'rent',
-        amount: -2500
-    },{
+        amount: -2500},
+    {
         name: 'parking fee',
         amount: 0
-    },{
+    },
+    {
         name: 'car fuel',
         amount: -600
-    },{
+    },
+    {
         name: 'commission',
         amount: 5500
     }
 ]
+
+function totalAmount(){
+    dataSet.forEach(i => {return i.amount})
+}
+
 </script>
  
 <template>
+
 <h1 style="text-align: center;">MY ACCOUNT</h1>
+
 <ul>
+
     <li v-for="data in dataSet">
+
+    <p v-if="data.amount>0" style="color: green">
     <p><b>Name:</b> {{data.name}}</p>
-    <p v-if="data.amount>0" style="color: green"><b>Amount:</b> {{data.amount}}</p>
-    <p v-if="data.amount<0" style="color: red"><b>Amount:</b> {{data.amount}}</p>
-    <hr>
+    <b>Amount:</b> {{data.amount}}</p>
+
+    <p v-if="data.amount<0" style="color: red">
+    <p><b>Name:</b> {{data.name}}</p>
+    <b>Amount:</b> {{data.amount}}</p>
+
     </li>
+    
+
 </ul>
-<p><b>Net Total</b> : hihi</p>
+
+<p><b>Net Total</b> : {{totalAmount()}}</p>
+
 </template>
 
 <style>

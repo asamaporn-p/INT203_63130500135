@@ -1,30 +1,31 @@
 <script setup>
+import { ref } from 'vue';
+const text = ref('TEXT')
 
-import {ref} from 'vue'
-const c = ref(0)
-const f = ref(32)
+const isChecked = ref(true)
 
-const setC = (e,v = +e.target.value) => {
-    c.value = v;
-    f.value = v * (9/5) + 32;
+const isRed = () =>{
+  isChecked.value = !isChecked.value;
 }
-
-const setF = (e,v = +e.target.value) => {
-    f.value = v
-    c.value = (v-32) * (5/9)
-
-}
-
 </script>
- 
+
 <template>
-
-<input type="number" :value="c" @change="setC">Celsius<br>
-<input type="nunber" :value="f" @change="setF">Fahrenheit
-
-
+<div>
+    <p :style="isChecked ? 'color: red': ''" >{{text}}</p>
+    <p :class="isChecked ? 'text-danger': ''">{{text}}</p>
+    <p :class="{'text-danger':isChecked}">{{text}}</p>
+  </div>
+  <button @click="isRed">Red It</button>
 </template>
- 
-<style>
 
+<style>
+.active {
+  text-decoration: underline;
+}
+.text-danger {
+  color: red;
+}
+.text-center {
+  text-align: center;
+}
 </style>

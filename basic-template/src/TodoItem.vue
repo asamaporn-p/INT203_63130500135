@@ -5,5 +5,5 @@ const props = defineProps({
 </script>
 
 <template>
-  <li>{{ item.name }}</li>
+  <li>{{ todo.text }}</li>
 </template>

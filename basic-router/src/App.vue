@@ -6,6 +6,7 @@
 
   <div>
     <div>
+      <router-link :to="{name: 'Home'}">Home</router-link> |
       <router-link :to="{ name: 'Profile' }">My Profile</router-link>
     </div>
     <div>

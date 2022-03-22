@@ -1,5 +1,11 @@
-<script setup></script>
+<script setup>
+import { useRouter } from 'vue-router'
+const appRouter = useRouter()
+const closeModal = () => appRouter.push({name: 'Home'})
+</script>
+
 <template>
+
   <div class="modal-mask">
     <div class="modal-wrapper">
       <div class="modal-container">
@@ -11,8 +17,11 @@
       </div>
     </div>
   </div>
+
 </template>
+
 <style scoped>
+
 .modal-mask {
   position: fixed;
   z-index: 9998;
@@ -47,4 +56,5 @@
   display: flex;
   justify-content: end;
 }
+
 </style>

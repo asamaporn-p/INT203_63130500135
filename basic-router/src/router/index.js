@@ -1,6 +1,7 @@
 import {createRouter, createWebHistory} from 'vue-router'
 import Profile from '../views/Profile.vue'
 import Home from '../views/Home.vue'
+import ProductItem from '../views/ProductItem.vue'
 import NotFound from '../views/NotFound.vue'
 
 const history = createWebHistory()
@@ -14,6 +15,11 @@ const routes = [
         path: '/',
         name: 'Home',
         component: Home
+    },
+    {
+        path: '/product-item/:productId',
+        name: 'ProductItem',
+        component: ProductItem
     },
     {
         path: '/:catchNotMatchPath(.*)',

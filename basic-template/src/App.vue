@@ -1,31 +1,24 @@
 <script setup>
-import { ref } from 'vue';
-const text = ref('TEXT')
-
-const isChecked = ref(true)
-
-const isRed = () =>{
-  isChecked.value = !isChecked.value;
-}
+import { ref, onBeforeMount, onMounted, onBeforeUpdate, onUpdated } from 'vue';
+onMounted(() => {
+  // num.value = 5
+  alert(`on mounted: ${num.value}`)
+})
+onBeforeMount(()=> alert(`on before mount: ${num.value}`))
+onBeforeUpdate(() => {
+  num.value = num.value > 10?0:num.value
+  alert(`on before update: ${num.value}`)
+})
+onUpdated(() => alert(`on updated: ${num.value}`))
+const num = ref(1);
+alert(`on created: ${num.value}`)
 </script>
-
+ 
 <template>
-<div>
-    <p :style="isChecked ? 'color: red': ''" >{{text}}</p>
-    <p :class="isChecked ? 'text-danger': ''">{{text}}</p>
-    <p :class="{'text-danger':isChecked}">{{text}}</p>
-  </div>
-  <button @click="isRed">Red It</button>
+<div>num: {{num}}</div>
+<button @click="num=num+1">+</button>
 </template>
-
+ 
 <style>
-.active {
-  text-decoration: underline;
-}
-.text-danger {
-  color: red;
-}
-.text-center {
-  text-align: center;
-}
+
 </style>

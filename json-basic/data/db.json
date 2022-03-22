@@ -1,0 +1,24 @@
+{
+  "notes": [
+    {
+      "id": 1,
+      "noteDetail": "preparing exam"
+    },
+    {
+      "id": 2,
+      "noteDetail": "watch movies"
+    },
+    {
+      "id": 3,
+      "noteDetail": "playing games"
+    },
+    {
+      "noteDetail": "play",
+      "id": 4
+    },
+    {
+      "noteDetail": "sleep",
+      "id": 5
+    }
+  ]
+}

@@ -1,21 +1,23 @@
 <script setup>
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-import HelloWorld from './components/HelloWorld.vue'
+const testMe1 = () => console.log('test me 1')
+const testMe2 = (e) => console.log('test me 2', e)
+const testMe3 = (e) => console.log('test me 3', e)
+const testMe4 = (a) => console.log('test me 4', a)
+const testMe5 = (e, n) => console.log('test me 5', e, n)
+const testMe6 = (e, n) => console.log('test me 6', e, n)
 </script>
 
-<template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + Vite" />
+<template>  
+<div>
+      <BaseButton2 button-name="Like Me1" @likeMe="testMe1" />
+      <BaseButton2 button-name="Like Me2" @likeMe="testMe2" />
+      <BaseButton2 button-name="Like Me3" @likeMe="testMe3()" />
+      <BaseButton2 button-name="Like Me4" @likeMe="testMe4($event)" />
+      <BaseButton2 button-name="Like Me5" @likeMe="testMe5($event, true)" />
+      <BaseButton2 button-name="Like Me6" @likeMe="testMe6(404, $event)" />
+    </div>
 </template>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>

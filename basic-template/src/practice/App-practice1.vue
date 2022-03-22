@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue';
-import TodoItem from './ToDoItem.vue'
+import TodoItem from '../ToDoItem.vue'
 
 const msg = ref('i wuv u <3');
 const isRed = ref(true);

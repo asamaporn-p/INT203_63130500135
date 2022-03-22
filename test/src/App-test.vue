@@ -1,6 +1,5 @@
 <script setup>
 import { ref } from 'vue'
-
 const myID = { id:63130500135,
 firstName: 'Asamaporn',
 surName: 'Pladsri'
@@ -9,9 +8,9 @@ surName: 'Pladsri'
 const randNumbers = ref([]);
 
 const grid = ref([
-  0,0,0,
-  0,0,0,
-  0,0,0
+  [],[],[],
+  [],[],[],
+  [],[],[]
   ]);
 
 
@@ -43,13 +42,12 @@ const showNum = () => {
     </div>
     <div class="error-message">
       <!-- show error message when a user adding the same number in the bingo sheet -->
-    <p v-show="isError">Sorry, your number has already used in bingo sheet</p>
     </div>
     <div class="grid-container">
       <!-- edit -->
-      <div class="grid-item" v-for="(gridCol,index) in grid" :key="index">
+      <div class="grid-item" v-for="gridCol in grid">
         <!-- show bingo 3 rows x 3 cols here -->
-        <button :disabled="randNumbers.length" v-if="gridCol===0">Add Number</button>
+        <button disabled v-if="!randNumbers.length">Add Number</button>
         <button v-else @click="showNum" id="addNum">Add Number</button>
       </div>
     </div>

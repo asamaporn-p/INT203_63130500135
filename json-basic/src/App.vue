@@ -51,7 +51,7 @@ const toEditMode = (editNote) => {
 }
 
 const updateNote = async (replaceNote) => {
-    fetch(`http://localhost:5000/notes/${replaceNote.id}`, {
+    const res = await fetch(`http://localhost:5000/notes/${replaceNote.id}`, {
         method: 'PUT',
         headers: {
             'content-type': 'application/json'

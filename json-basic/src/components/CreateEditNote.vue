@@ -1,7 +1,7 @@
 <script setup>
 import {ref, computed} from 'vue'
 defineEmits(['createNote', 'updateNote'])
-defineProps({
+const props = defineProps({
   currentNote: {
   type: Object,
   default: {}
@@ -11,7 +11,7 @@ defineProps({
 // const newNote = ref('')
 
 const newNote = computed(()=> {
-  return{
+  return {
     id: props.currentNote.id,
     noteDetail: props.currentNote.noteDetail
   }
@@ -23,7 +23,7 @@ const newNote = computed(()=> {
 <template>
   <div>
     <h2>Create Note</h2>
-    Note Detail: <input type="text" v-model="newNote" />
+    Note Detail: <input type="text" v-model="newNote.noteDetail" />
     <button v-if="newNote.id > 0" @click="$emit('updateNote', newNote)">Save</button>
     <button v-else @click="$emit('createNote', newNote.noteDetail)">Create</button>
   </div>
